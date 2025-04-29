@@ -3,8 +3,20 @@ import styles from "./page.module.css";
 import Counter from "./Counter";
 import Link from "next/link";
 export default function Home() {
+  const postids = [1, 2, 3,];
   return (
     <div className={styles.page}>
+<div>
+<h1>記事一覧</h1>
+<ul>
+{postids.map((id) =>(
+  <li key={id}>
+<Link href={`/post/${id}`}>記事 {id} を読む</Link>
+  </li>
+))}
+</ul>
+</div>
+
       <Link href="about">Aboutページへ移動</Link>
       <Counter />
       <main className={styles.main}>
@@ -94,6 +106,6 @@ export default function Home() {
           Go to nextjs.org →
         </a>
       </footer>
-    </div>
+    </div >
   );
 }
